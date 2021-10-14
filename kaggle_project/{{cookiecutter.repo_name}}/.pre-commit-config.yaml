@@ -1,0 +1,33 @@
+repos:
+  - repo: local
+    hooks:
+      - id: jupyter-nb-clear-output
+        name: jupyter-nb-clear-output
+        files: \.ipynb$
+        stages: [commit]
+        language: python
+        additional_dependencies:
+          - jupyter
+        args: []
+        entry: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --ClearMetadataPreprocessor.enabled=True --inplace
+  - repo: https://github.com/ambv/black
+    rev: 21.5b1
+    hooks:
+    - id: black
+      language_version: python3.8
+  - repo: https://github.com/pycqa/isort
+    rev: 5.8.0
+    hooks:
+      - id: isort
+        name: isort (python)
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.0.1  # Use the ref you want to point at
+      hooks:
+        - id: check-added-large-files
+          args: ['--maxkb=500']
+        - id: detect-aws-credentials
+          args: ['--allow-missing-credentials']
+        - id: detect-private-key
+        - id: flake8
+
+

@@ -1,0 +1,17 @@
+name: null
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python={{cookiecutter.python_version}}
+  - numpy
+  - pandas
+  - matplotlib
+  - mypy
+  - black
+  - flake8
+  - pip
+  - pip:
+      - "-e ."

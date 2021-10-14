@@ -1,0 +1,5 @@
+{
+    "competition": null,
+    "repo_name": "{{cookiecutter.competition}}",
+    "python_version": "3.8",
+}
